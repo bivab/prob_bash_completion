@@ -1,3 +1,6 @@
+# Created: %{date}
+# ProB Version: %{version}
+
 _probcli_pref_opts()
 {
     opts=%{pref_opts}

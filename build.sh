@@ -16,7 +16,11 @@ rm cache.txt &> /dev/null
 
 opts=${opts//$'\n'/' '}
 pref_opts=${pref_opts//$'\n'/' '}
+version=$($PROBCLI --version | grep VERSION | cut -c 11-)
+date=`date "+%Y-%m-%d"`
 
-sed -e "s/%{opts}/\"${opts}\"/g" \
+sed -e "s/%{version}/${version}/g" \
+    -e "s/%{date}/${date}/g" \
+    -e "s/%{opts}/\"${opts}\"/g" \
 		-e "s/%{pref_opts}/\"${pref_opts}\"/g" \
 		completion.template > prob_completion.sh
