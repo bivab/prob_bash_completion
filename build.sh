@@ -14,8 +14,8 @@ opts=$(cat cache.txt \
 		| awk '{ print $1 }')
 rm cache.txt &> /dev/null
 
-opts=${opts//$'\n'/' '}
-pref_opts=${pref_opts//$'\n'/' '}
+opts=$(echo $opts | sed -e "s/\n/ /g")
+pref_opts=$(echo $pref_opts | sed -e "s/\n/ /g")
 version=$($PROBCLI --version | grep VERSION | cut -c 11-)
 date=`date "+%Y-%m-%d"`
 
