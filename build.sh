@@ -6,7 +6,7 @@ fi
 ${PROBCLI} -h -v > cache.txt
 
 pref_opts=$(cat cache.txt \
-			| grep '^\s\{1,\}[A-Z]\w*\s\{1,\}:' \
+			| grep '^\s\{1,\}[A-Z]\w*\s\{1,\}=\s' \
 			| awk '{print $1}')
 
 opts=$(cat cache.txt \
